@@ -28,7 +28,6 @@ public class Main2Activity extends AppCompatActivity {
     TextView textView;
     DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
     String date = df.format(Calendar.getInstance().getTime());
-    CharSequence duzenlendi;
 
 
 

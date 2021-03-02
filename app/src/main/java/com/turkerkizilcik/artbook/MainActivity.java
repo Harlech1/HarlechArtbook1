@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 intent.putExtra("artId", idArray.get(i));
                 intent.putExtra("info", "old");
-                //intent.putExtra("date", date);
+
                 startActivity(intent);
             }
         });
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("artId", idArray.get(i));
                 intent.putExtra("info", "delete");
                 intent.putExtra("position", idArray.get(i));
-                //intent.putExtra("date", date);
                 startActivity(intent);
 
                 return false;
