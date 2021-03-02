@@ -47,7 +47,6 @@ public class Main2Activity extends AppCompatActivity {
         linearLayout3 = findViewById(R.id.linearLayout3);
         String currentTime = Calendar.getInstance().getTime().toString();
 
-        //intent i alıyo main1 den new ya da old
 
 
 
@@ -64,16 +63,11 @@ public class Main2Activity extends AppCompatActivity {
             params.width = 1200;
             try {
                 int artId = intent.getIntExtra("artId", 1);
-                //int date1 = intent.getIntExtra("date", 1);
-                // id si işte main1 deki onClick metodundan geliyo sonra onun artname + paintername'sini alıyo sonra işte onları yerine koyuyo kapıyo
                 Cursor cursor = database.rawQuery("SELECT * FROM arts WHERE id == ?", new String[]{String.valueOf(artId)});
                 int artNameIx = cursor.getColumnIndex("artname");
                 int painterNameIx = cursor.getColumnIndex("paintername");
                 int dateIx = cursor.getColumnIndex("date");
                 intent.getStringExtra("date");
-                textView.setText(info1);
-
-
 
                 while (cursor.moveToNext()) {
                     artNameText.setText(cursor.getString(artNameIx));
@@ -106,7 +100,7 @@ public class Main2Activity extends AppCompatActivity {
                 params.width = 1200;
                 try {
 
-                    // id si işte main1 deki onClick metodundan geliyo sonra onun artname + paintername'sini alıyo sonra işte onları yerine koyuyo kapıyo
+
                     Cursor cursor = database.rawQuery("SELECT * FROM arts WHERE id == ?", new String[]{String.valueOf(artId)});
                     int artNameIx = cursor.getColumnIndex("artname");
                     int painterNameIx = cursor.getColumnIndex("paintername");
