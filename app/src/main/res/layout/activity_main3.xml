@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="256dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="77dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_lock"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:foregroundGravity="center"
+        android:hint="@string/sifrehintn3"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="?android:attr/textColorHint"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/fakeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="134dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="#00CED1"
+            android:fontFamily="sans-serif-condensed"
+            android:freezesText="false"
+            android:onClick="login"
+            android:text="@string/login"
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_light_nodisable"
+            android:textIsSelectable="false"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/signinButton"
+            android:layout_width="134dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="#00CED1"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="signin"
+            android:text="@string/signin"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/fakeButton"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="57dp"
+        android:layout_weight="1"
+        android:background="#00CED1"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="fake"
+        android:text="@string/olustur"
+        android:textAlignment="center"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="24dp"
+        android:foregroundGravity="center"
+        android:gravity="center_horizontal"
+        android:text="@string/baslangic"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/passwordText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lockbetter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
