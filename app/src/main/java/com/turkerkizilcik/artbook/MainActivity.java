@@ -1,6 +1,5 @@
 package com.turkerkizilcik.artbook;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase database;
     DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
     String date = df.format(Calendar.getInstance().getTime());
-
 
 
     @Override
@@ -62,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 intent.putExtra("artId", idArray.get(i));
                 intent.putExtra("info", "old");
-
+                //intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -76,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("artId", idArray.get(i));
                 intent.putExtra("info", "delete");
                 intent.putExtra("position", idArray.get(i));
+                //intent.putExtra("date", date);
                 startActivity(intent);
 
                 return false;
