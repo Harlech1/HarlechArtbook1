@@ -127,7 +127,6 @@ public class Main2Activity extends AppCompatActivity {
         String currentTime = Calendar.getInstance().getTime().toString();
 
         try {
-            //arts tablesinin içine işte yazılanları koyuyo artName ve painterName olarak
             database = this.openOrCreateDatabase("Arts", MODE_PRIVATE, null);
             database.execSQL("CREATE TABLE IF NOT EXISTS arts (id INTEGER PRIMARY KEY, artname VARCHAR, paintername VARCHAR, date VARCHAR)");
             String sqlString = "INSERT INTO arts(artname, paintername, date) VALUES (?, ?, ?)";
@@ -141,7 +140,6 @@ public class Main2Activity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(Main2Activity.this, this.getString(R.string.notunuzkaydedilmedi),Toast.LENGTH_LONG).show();
         }
-        // sonra yeni main1 e atıyo intent başlıyo
         Intent intent = new Intent(Main2Activity.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -174,14 +172,8 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = getIntent();
         int artId = intent.getIntExtra("artId", 1);
         try {
-            //String paintername1 = painterNameText.getText().toString();
             database = this.openOrCreateDatabase("Arts", MODE_PRIVATE, null);
             database.execSQL("CREATE TABLE IF NOT EXISTS arts (id INTEGER PRIMARY KEY, artname VARCHAR, paintername VARCHAR, date VARCHAR)");
-            //String sqlString = "INSERT INTO arts(artname, paintername,date) VALUES (?, ?, ?)";
-            //database.execSQL("UPDATE arts SET paintername = ? WHERE id == ?", new String[]{String.valueOf(artId)});
-            //database.execSQL("DELETE FROM arts WHERE id == ?", new String[]{String.valueOf(artId)});
-            //database.execSQL("UPDATE arts SET artname, paintername,date VALUES(?,?,?) WHERE id == ?", new String[]{String.valueOf(artId)});
-            //database.execSQL("UPDATE arts SET artname = ? , paintername = ?, date = ? WHERE id == ?", new String[]{String.valueOf(artId)});
             String sqlString = "UPDATE arts SET artname = ? , paintername = ?, date = ? WHERE id == ? ";
             SQLiteStatement sqLiteStatement = database.compileStatement(sqlString);
             sqLiteStatement.bindString(1, artName);
@@ -190,7 +182,6 @@ public class Main2Activity extends AppCompatActivity {
             sqLiteStatement.bindLong(4, artId);
             sqLiteStatement.execute();
             Toast.makeText(Main2Activity.this,this.getString(R.string.notunuzduzenld),Toast.LENGTH_LONG).show();
-
         } catch (Exception e) {
             Toast.makeText(Main2Activity.this,this.getString(R.string.notunuzduzenmedi),Toast.LENGTH_LONG).show();
         }

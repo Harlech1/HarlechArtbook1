@@ -50,7 +50,6 @@ public class MainActivity5 extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity5.this, MainActivity4.class);
                 intent.putExtra("artId", idArray.get(i));
                 intent.putExtra("info", "old");
-                //intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
