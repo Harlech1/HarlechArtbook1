@@ -26,9 +26,8 @@ public class Main2Activity extends AppCompatActivity {
     LinearLayout linearLayout3;
     SQLiteDatabase database;
     TextView textView;
-    DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
-    String date = df.format(Calendar.getInstance().getTime());
-
+    DateFormat df = new SimpleDateFormat("h:mm dd.MM.yyyy");// sout'u 5:09 24.06.2021
+    String date = df.format(Calendar.getInstance().getTime());// sout'u 5:09 24.06.2021
 
 
     @Override
@@ -38,21 +37,15 @@ public class Main2Activity extends AppCompatActivity {
 
         artNameText = findViewById(R.id.artNameText);
         painterNameText = findViewById(R.id.painterNameText);
-        textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         database = this.openOrCreateDatabase("Arts", MODE_PRIVATE, null);
         linearLayout3 = findViewById(R.id.linearLayout3);
-        String currentTime = Calendar.getInstance().getTime().toString();
-
-
 
 
         Intent intent = getIntent();
         String info = intent.getStringExtra("info");
-        String info1 = intent.getStringExtra("date");
-
 
         if (info.matches("delete")) {
             button.setVisibility(View.INVISIBLE);
@@ -66,12 +59,11 @@ public class Main2Activity extends AppCompatActivity {
                 int artNameIx = cursor.getColumnIndex("artname");
                 int painterNameIx = cursor.getColumnIndex("paintername");
                 int dateIx = cursor.getColumnIndex("date");
-                intent.getStringExtra("date");
 
                 while (cursor.moveToNext()) {
                     artNameText.setText(cursor.getString(artNameIx));
                     painterNameText.setText(cursor.getString(painterNameIx));
-                    currentTime = cursor.getString(dateIx);
+                    //currentTime = cursor.getString(dateIx);
                 }
 
                 cursor.close();
@@ -85,12 +77,11 @@ public class Main2Activity extends AppCompatActivity {
             button.setVisibility(View.VISIBLE);
             button2.setVisibility(View.INVISIBLE);
             button3.setVisibility(View.INVISIBLE);
-            textView.setText(info1);
             ViewGroup.LayoutParams params = linearLayout3.getLayoutParams();
             params.width = 1200;
 
         }else {
-
+            //düzenleme yeri
                 int artId = intent.getIntExtra("artId", 1);
                 button.setVisibility(View.INVISIBLE);
                 button2.setVisibility(View.INVISIBLE);
@@ -104,14 +95,11 @@ public class Main2Activity extends AppCompatActivity {
                     int artNameIx = cursor.getColumnIndex("artname");
                     int painterNameIx = cursor.getColumnIndex("paintername");
                     int dateIx = cursor.getColumnIndex("date");
-                    intent.getStringExtra("date");
-                    textView.setText(info1);
 
 
                     while (cursor.moveToNext()) {
                         artNameText.setText(cursor.getString(artNameIx));
                         painterNameText.setText(cursor.getString(painterNameIx));
-                        currentTime = cursor.getString(dateIx);
                     }
                     cursor.close();
                 } catch (Exception e) {
@@ -124,7 +112,7 @@ public class Main2Activity extends AppCompatActivity {
 
         String artName = artNameText.getText().toString();
         String painterName = painterNameText.getText().toString();
-        String currentTime = Calendar.getInstance().getTime().toString();
+
 
         try {
             database = this.openOrCreateDatabase("Arts", MODE_PRIVATE, null);
@@ -133,7 +121,7 @@ public class Main2Activity extends AppCompatActivity {
             SQLiteStatement sqLiteStatement = database.compileStatement(sqlString);
             sqLiteStatement.bindString(1, artName);
             sqLiteStatement.bindString(2, painterName);
-            sqLiteStatement.bindString(3, currentTime);
+            sqLiteStatement.bindString(3, date);
             sqLiteStatement.execute();
             Toast.makeText(Main2Activity.this, this.getString(R.string.notunuzkaydedildi),Toast.LENGTH_LONG).show();
 
@@ -166,7 +154,6 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void edit(View view) {
-        String currentTime = Calendar.getInstance().getTime().toString();
         String artName = artNameText.getText().toString();
         String painterName = painterNameText.getText().toString();
         Intent intent = getIntent();
@@ -178,7 +165,7 @@ public class Main2Activity extends AppCompatActivity {
             SQLiteStatement sqLiteStatement = database.compileStatement(sqlString);
             sqLiteStatement.bindString(1, artName);
             sqLiteStatement.bindString(2, painterName);
-            sqLiteStatement.bindString(3, currentTime);
+            sqLiteStatement.bindString(3, date);
             sqLiteStatement.bindLong(4, artId);
             sqLiteStatement.execute();
             Toast.makeText(Main2Activity.this,this.getString(R.string.notunuzduzenld),Toast.LENGTH_LONG).show();

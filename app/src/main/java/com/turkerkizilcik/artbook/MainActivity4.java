@@ -31,7 +31,6 @@ public class MainActivity4 extends AppCompatActivity {
 
         artNameText = findViewById(R.id.artNameText);
         painterNameText = findViewById(R.id.painterNameText);
-        textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);

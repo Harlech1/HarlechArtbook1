@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark"
     tools:context=".MainActivity5">
 
     <ListView
@@ -15,22 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="57dp"
         android:layout_height="57dp"
-        app:fabCustomSize="57dp"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:foregroundGravity="center_vertical|center|center_horizontal"
-        app:backgroundTint="#FDFD96"
+        app:backgroundTint="@color/blue"
         app:borderWidth="0dp"
+        app:fabCustomSize="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/painterNameText"
         app:pressedTranslationZ="1dp"
         app:srcCompat="@drawable/ic_baseline_create_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

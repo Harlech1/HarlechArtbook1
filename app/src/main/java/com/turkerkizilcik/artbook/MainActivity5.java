@@ -1,19 +1,20 @@
 package com.turkerkizilcik.artbook;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
+
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,16 +32,33 @@ public class MainActivity5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-
-
-        Toast.makeText(MainActivity5.this,this.getString(R.string.safe),Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity5.this, this.getString(R.string.safe), Toast.LENGTH_LONG).show();
 
         listView = findViewById(R.id.listView);
         nameArray = new ArrayList<>();
         dateArray = new ArrayList<>();
         idArray = new ArrayList<>();
         database = this.openOrCreateDatabase("FakeArts", MODE_PRIVATE, null);
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, nameArray);
+
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, nameArray) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                // Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
+
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                // Set the text color of TextView (ListView Item)
+                tv.setTextColor(Color.WHITE);
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
+
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

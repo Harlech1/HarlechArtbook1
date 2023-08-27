@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark"
     tools:context=".MainActivity">
-
 
     <ListView
         android:id="@+id/listView"
@@ -25,7 +25,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:foregroundGravity="center_vertical|center|center_horizontal"
-        app:backgroundTint="#FDFD96"
+        app:backgroundTint="@color/blue"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

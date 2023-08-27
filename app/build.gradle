@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.turkerkizilcik.artbook"
-        minSdkVersion 17
-        targetSdkVersion 30
-        versionCode 12
-        versionName "2.2.1"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 21
+        versionName "3.3"
         vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,6 +28,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'com.vorlonsoft:androidrate:1.0.8'
     implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.preference:preference:1.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

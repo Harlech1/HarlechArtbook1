@@ -3,10 +3,16 @@ package com.turkerkizilcik.artbook;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.preference.PreferenceManager;
+
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,11 +20,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -30,20 +35,17 @@ import com.vorlonsoft.android.rate.StoreType;
 
 public class MainActivity3 extends AppCompatActivity {
 
-
     EditText passwordText;
     SharedPreferences sharedPreferences;
     Button loginButton;
     Button signinButton;
     Button fakeButton;
     LinearLayout linearLayout;
-    TextView textView2;
-    String secondapprove,secondreject,sifrebosbirak,hopsifreolmadi;
+    String secondapprove, secondreject, sifrebosbirak, hopsifreolmadi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
         sharedPreferences = this.getSharedPreferences("com.turkerkizilcik.sifrelinotdefteri", Context.MODE_PRIVATE);
         passwordText = findViewById(R.id.passwordText);
@@ -51,12 +53,10 @@ public class MainActivity3 extends AppCompatActivity {
         signinButton = findViewById(R.id.signinButton);
         fakeButton = findViewById(R.id.fakeButton);
         linearLayout = findViewById(R.id.linearLayout);
-        textView2 = findViewById(R.id.textView2);
         hopsifreolmadi = this.getString(R.string.hopsifreolmadi);
         sifrebosbirak = this.getString(R.string.sifrebosbirak);
         secondapprove = this.getString(R.string.fakeapprove);
         secondreject = this.getString(R.string.fakereject);
-
 
 
         AppRate.with(this)
@@ -96,39 +96,41 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (storedPassword != "a") {
             signinButton.setVisibility(View.INVISIBLE);
-            ViewGroup.LayoutParams params = linearLayout.getLayoutParams();
-            params.width = 720;
-            textView2.setVisibility(View.INVISIBLE);
         } else {
-            loginButton.setVisibility(View.INVISIBLE);
-            ViewGroup.LayoutParams params = linearLayout.getLayoutParams();
-            params.width = 720;
+            //loginButton.setVisibility(View.INVISIBLE);
         }
         if (storedFakePassword != "b") {
             fakeButton.setVisibility(View.INVISIBLE);
-            ViewGroup.LayoutParams params = linearLayout.getLayoutParams();
-            params.width = 720;
-            textView2.setVisibility(View.INVISIBLE);
         }
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
     }
 
-    public void login (View view) {
+    @Override
+    protected void onRestart() {
+        passwordText.setText("");
+        super.onRestart();
+    }
+
+    public void login(View view) {
 
         String password = passwordText.getText().toString();
         String storedFakePassword = sharedPreferences.getString("storedFakePassword", "password");
         String storedPassword = sharedPreferences.getString("storedPassword", "password");
 
-        if(password.equals(storedPassword)) {
+        if (password.equals(storedPassword)) {
             Intent intent = new Intent(MainActivity3.this, MainActivity.class);
             startActivity(intent);
-        } else if(password.equals(storedFakePassword)){
+        } else if (password.equals(storedFakePassword)) {
             Intent intent = new Intent(MainActivity3.this, MainActivity5.class);
             startActivity(intent);
         } else {
-            Toast.makeText(MainActivity3.this,this.getString(R.string.sifreeslesmedi),Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity3.this, this.getString(R.string.sifreeslesmedi), Toast.LENGTH_LONG).show();
         }
     }
-    public void signin (View view) {
+
+    public void signin(View view) {
 
         final String password = passwordText.getText().toString();
 
@@ -139,11 +141,8 @@ public class MainActivity3 extends AppCompatActivity {
             alert.setNegativeButton(this.getString(R.string.evet), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
-
                     sharedPreferences.edit().putString("storedPassword", password).apply();
                     signinButton.setVisibility(View.INVISIBLE);
-
 
                     AlertDialog.Builder alert2 = new AlertDialog.Builder(MainActivity3.this);
                     alert2.setTitle(MainActivity3.this.getString(R.string.hosgeldin));
@@ -162,40 +161,31 @@ public class MainActivity3 extends AppCompatActivity {
                     });
 
                     alert2.show();
-
                 }
-                    /*
-                public String getString(int sifreeslesti) {
-                    return null;
-                }
-
-                     */
             });
             alert.setPositiveButton(this.getString(R.string.hayir), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(MainActivity3.this,hopsifreolmadi,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity3.this, hopsifreolmadi, Toast.LENGTH_LONG).show();
                 }
             });
             alert.show();
         } else {
-            Toast.makeText(MainActivity3.this,sifrebosbirak,Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity3.this, sifrebosbirak, Toast.LENGTH_LONG).show();
         }
     }
-    public void fake(View view) {
 
+    public void fake(View view) {
 
         String password = passwordText.getText().toString();
         String storedPassword = sharedPreferences.getString("storedPassword", "password");
         final String fakePassword = passwordText.getText().toString();
         final String storedFakePassword = sharedPreferences.getString("storedFakePassword", password);
 
-
-
-        if (password.matches("") ) {
-            Toast.makeText(MainActivity3.this,this.getString(R.string.sahtesifreblank),Toast.LENGTH_LONG).show();
+        if (password.matches("")) {
+            Toast.makeText(MainActivity3.this, this.getString(R.string.sahtesifreblank), Toast.LENGTH_LONG).show();
         } else if (fakePassword.matches(storedPassword)) {
-            Toast.makeText(MainActivity3.this,this.getString(R.string.sahtesifregercek),Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity3.this, this.getString(R.string.sahtesifregercek), Toast.LENGTH_LONG).show();
         } else {
             AlertDialog.Builder alert3 = new AlertDialog.Builder(this);
             alert3.setTitle(this.getString(R.string.eminmisiniz));
@@ -205,7 +195,7 @@ public class MainActivity3 extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                     sharedPreferences.edit().putString("storedFakePassword", storedFakePassword).apply();
-                    Toast.makeText(MainActivity3.this,secondapprove,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity3.this, secondapprove, Toast.LENGTH_LONG).show();
                     loginButton.setVisibility(View.VISIBLE);
                     fakeButton.setVisibility(View.INVISIBLE);
                 }
@@ -213,7 +203,7 @@ public class MainActivity3 extends AppCompatActivity {
             alert3.setPositiveButton(this.getString(R.string.hayir), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(MainActivity3.this,secondreject,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity3.this, secondreject, Toast.LENGTH_LONG).show();
                 }
             });
             alert3.show();
@@ -223,12 +213,12 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     @Override
-       public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-            MenuInflater menuInflater = getMenuInflater();
-            menuInflater.inflate(R.menu.change, menu);
-            return super.onCreateOptionsMenu(menu);
-      }
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.change, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -238,16 +228,20 @@ public class MainActivity3 extends AppCompatActivity {
                 Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.turkerkizilcik.sifrelinotdefteripro"));
                 appStoreIntent.setPackage("com.android.vending");
                 startActivity(appStoreIntent);
-            } catch (android.content.ActivityNotFoundException exception) {
+            } catch (ActivityNotFoundException exception) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.turkerkizilcik.artbook")));
             }
         }
+        if (item.getItemId() == R.id.settings) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity8.class);
+            startActivity(intent);
+        }
 
-        if(item.getItemId() == R.id.change) {
+        if (item.getItemId() == R.id.change) {
             Intent intent = new Intent(getApplicationContext(), MainActivity6.class);
             startActivity(intent);
         }
-        if(item.getItemId() == R.id.pro1) {
+        if (item.getItemId() == R.id.pro1) {
             Intent intent = new Intent(getApplicationContext(), MainActivity7.class);
             startActivity(intent);
 

@@ -1,50 +1,77 @@
 <resources>
-    <string name="app_name">Şifreli Not Defteri</string>
-    <string name="kaydet">Kaydet</string>
-    <string name="duzenle">Düzenle</string>
-    <string name="sil">Sil</string>
-    <string name="baslik">Başlık</string>
-    <string name="note">Notunuz</string>
-    <string name="baslangic">Şifrenizi girip \"kaydol\" tuşuna basın.</string>
-    <string name="sifrehintn3">Şifre</string>
-    <string name="login">Giriş yap</string>
-    <string name="signin">Kaydol</string>
-    <string name="olustur">Oluştur</string>
-    <string name="iletisim">İletişim</string>
-    <string name="aes">AES-256 Korumalı Not Defteri</string>
-    <string name="changemypw">Şifremi Değiştir</string>
-    <string name="email">E-mail adresi: turkerkizilcik@gmail.com</string>
-    <string name="text">İlk uygulamam olduğu için tasarım vb. hakkında çok tecrübem yok(lise öğrencisiyim) o yüzden sizlerin isteği doğrultusunda değiştiriyorum. Bir isteğinizle  istediğinizi ekleyebilir, değiştirebilirim. Uygulama hakkında sorular, hatalar,  öneriler, çökmeler, memnuniyetsizlikler vs. her şeyi yazabilirsiniz, saatler içerisinde cevap veririm.</string>
-    <string name="thanks">Uygulamayı kullandığınız için teşekkürler.</string>
-    <string name="eskisifre">Eski Şifre</string>
-    <string name="yenisifre">Yeni Şifre</string>
-    <string name="yenisifreonay">Yeni Şifreyi Onaylayın</string>
-    <string name="notunuzkaydedildi">Notunuz kaydedildi!</string>
-    <string name="notunuzkaydedilmedi">Notunuz kaydedilemedi, lütfen tekrar deneyin.</string>
-    <string name="notunuzsilindi">Notunuz silindi.</string>
-    <string name="notunuzsilinmedi">Notunuz silinemedi, lütfen tekrar deneyin.</string>
-    <string name="notunuzduzenld">Notunuz düzenlendi!</string>
-    <string name="notunuzduzenmedi">Notunuz düzenlenemedi, lütfen tekrar deneyin..</string>
-    <string name="sifreeslesmedi">Şifreniz eşleşmedi! Tekrar deneyiniz.</string>
-    <string name="sifreeslesti">Şifreniz kaydedildi, giriş yapabilirsiniz.</string>
-    <string name="evet">Evet</string>
-    <string name="hayir">Hayır</string>
-    <string name="eminmisiniz">Emin misiniz?</string>
-    <string name="sifrenizkaydedilio">Şifreniz kaydedilmek üzere. Bu işlemi onaylıyor musunuz?</string>
-    <string name="hosgeldin">Şifreli Not Defteri\'ne hoş geldiniz!</string>
-    <string name="mything">Program içerisinde ayrı bir şifre ile girilebilen gizli bir alan açmak istiyor musunuz? Evet\'e tıklarsanız bir buton açılacak ona tıklayın. Hayır\'a tıklarsanız bu uyarıyı bir daha görmeyeceksiniz.</string>
-    <string name="extrathingy">Ekstra şifreniz kaydedilmedi.</string>
-    <string name="hopsifreolmadi">Şifreniz kaydedilmedi, giriş yapamazsınız.</string>
-    <string name="sifrebosbirak">Şifre boş bırakılamaz!</string>
-    <string name="sahtesifreblank">İkinci şifre boş bırakılamaz!</string>
-    <string name="sahtesifregercek">İkinci şifre gerçek şifre ile aynı olamaz!</string>
-    <string name="sahtesifreonaylama">İkinci şifreniz oluşturulacaktır. Onaylıyor musunuz?</string>
-    <string name="fakeapprove">İkinci şifreniz kaydedildi, ekstra not alanı açıldı.</string>
-    <string name="fakereject">Sahte şifreniz kaydedilmedi, ekstra not alanı açılmadı.</string>
-    <string name="safe">Ekstra güvenli not alanına hoş geldiniz.</string>
-    <string name="sifreblankolamaz">Yeni şifreniz boş olamaz.</string>
-    <string name="confirmleyemedin">Şifreler eşleşmiyor.</string>
-    <string name="ayniolamaz">Eski şifreniz yeni şifreniz ile aynı olamaz.</string>
-    <string name="eskisifreyanlis">Eski şifrenizi yanlış girdiniz.</string>
+    <string name="app_name" translatable="false">Encrypted Notebook</string>
+    <string name="kaydet" translatable="false">Save</string>
+    <string name="duzenle" translatable="false">EDIT</string>
+    <string name="baslik" translatable="false">Title</string>
+    <string name="note" translatable="false">Your notes</string>
+    <string name="sil" translatable="false">DELETE</string>
+    <string name="baslangic" translatable="false">Enter your password and click on \"SIGN IN\".</string>
+    <string name="sifrehintn3" translatable="false">Password</string>
+    <string name="login" translatable="false">LOG IN</string>
+    <string name="signin" translatable="false">SIGN IN</string>
+    <string name="olustur" translatable="false">CREATE</string>
+    <string name="iletisim" translatable="false">Contact Me</string>
+    <string name="aes" translatable="false">Notebook Encrypted by AES-256</string>
+    <string name="changemypw" translatable="false">Change My Password</string>
+    <string name="email" translatable="false">E-mail address: turkerkizilcik@gmail.com</string>
+    <string name="text" translatable="false">"I take your reviews really serious. You can write anything about the app (questions, bugs, recommendations, ANR’s, dissatisfactions). I will reply in hours. "</string>
+    <string name="thanks" translatable="false">Thanks for using my app.</string>
+    <string name="eskisifre" translatable="false">Current Password</string>
+    <string name="yenisifre" translatable="false">New Password</string>
+    <string name="yenisifreonay" translatable="false">Confirm New Password</string>
+    <string name="notunuzkaydedildi" translatable="false">Your note is saved successfully.</string>
+    <string name="notunuzkaydedilmedi" translatable="false">Your note couldn\'t be saved. Please try again.</string>
+    <string name="notunuzsilindi" translatable="false">Your note is deleted successfully.</string>
+    <string name="notunuzsilinmedi" translatable="false">Your note couldn\'t be deleted. Please try again.</string>
+    <string name="notunuzduzenld" translatable="false"> Your note is changed successfully.</string>
+    <string name="notunuzduzenmedi" translatable="false">Your note couldn\'t be changed. Please try again.</string>
+    <string name="sifreeslesmedi" translatable="false">Your password doesn\'t match. Please try again.</string>
+    <string name="sifreeslesti" translatable="false">Your password matches. You can sign in.</string>
+    <string name="evet" translatable="false">Yes</string>
+    <string name="hayir" translatable="false">No</string>
+    <string name="eminmisiniz" translatable="false">Are you sure?</string>
+    <string name="sifrenizkaydedilio" translatable="false">Your password is about to be saved. Do you confirm this process?</string>
+    <string name="hosgeldin" translatable="false">Welcome to the Encrypted Notebook.</string>
+    <string name="extrathingy" translatable="false">Your extra password hasn\'t been saved.</string>
+    <string name="mything" translatable="false">Would you like to open a secret area in the app which you could enter with another password? If you click  “Yes” app is going  to open a button, click it. If you click “No” you will never see this message  again.</string>
+    <string name="hopsifreolmadi" translatable="false">Your password couldn\'t be saved, you cant sign in.</string>
+    <string name="sifrebosbirak" translatable="false">Password can\'t be blank.</string>
+    <string name="sahtesifreblank" translatable="false">Second password can\'t be blank!</string>
+    <string name="sahtesifregercek" translatable="false">Second password can\'t be same as the first!</string>
+    <string name="sahtesifreonaylama" translatable="false">Your second password is going to be created. Do you confirm this process?</string>
+    <string name="fakeapprove" translatable="false">Second password is saved, extra note area has been created.</string>
+    <string name="fakereject" translatable="false">Second password isn\'t saved, extra note area couldn\'t be created.</string>
+    <string name="safe" translatable="false">You are in the extra safe note area.</string>
+    <string name="sifreblankolamaz" translatable="false">New password can\'t be blank!</string>
+    <string name="confirmleyemedin" translatable="false">Passwords don\'t match.</string>
+    <string name="eskisifreyanlis" translatable="false">You entered your old password incorrectly.</string>
+    <string name="ayniolamaz" translatable="false">Your old password can\'t be the same as your new password.</string>
+    <string name="hosgeldiniz" translatable="false">Welcome</string>
+    <string name="Subject">Subject</string>
+    <string name="Message" translatable="false">Message</string>
+    <string name="Send" translatable="false">Send</string>
+    <string name="Ayarlar" translatable="false">Report a Bug</string>
+    <string name="TurkerAyarlar" translatable="false">Settings</string>
+    <string name="yasasin">Hooray!</string>
+
+
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header" translatable="false">Messages</string>
+    <string name="sync_header" translatable="false">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title" translatable="false">Your signature</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="theme_preferences_key" translatable="false">theme_preferences_key</string>
+    <string name="notification_preferences_key" translatable="false"></string>
 
 </resources>
